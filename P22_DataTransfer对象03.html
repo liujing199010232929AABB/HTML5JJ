@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P22_DataTransfer对象03</title>
+</head>
+<body>
+    <script type="text/javascript">
+        DataTransfer对象:在进行拖放操作时，DataTransfer对象用来保存，通过拖放操作，拖动到浏览器的数据。它可以保存一项或多项数据、一种或者多种数据类型。
+        1.event.DataTransfer
+        2.DataTransfer.setData(format,data):该方法用来设置拖动操作的当前数据
+        3.dataTransfer.getData(format):format 拖动数据的MIME类型，通常text/plain和text/uri-list
+        4.DataTransfer.clearData()
+        5.DataTransfer.setDragImage(img,xOffset,yOffset):可以使用该方法来拖拽图片
+        定义拖动效果
+        6.dropEffect属性可以定义完成具体的效果
+            6.1copy 表示拖动的数据将从其当前位置复制到放置位置
+            6.2move 表示拖动的数据将从其当前位置移动到放置位置
+            6.3link 表示将在源位置和放置位置之间创建某种形式的关系或连接
+
+
+    </script>
+</body>
+</html>

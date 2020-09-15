@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P22_拖拽的常用事件</title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="">小猿圈</a>
+		<img src="play.png" alt="">
+		<p draggable="true">mjj</p>
+		
+		<div class="box"></div>
+		<script type="text/javascript">
+			// 拖放的基本操作: 选中 => 拖动=>释放
+			// darggable 设置为true 为false不可以被拖动
+			
+			// 想设置一次拖动
+			// 三个过程：拖动的开始=>拖动过程中=>拖动结束
+			
+			// 1.被推动的元素对象
+						// dragstart 当前对象被拖动时触发
+						// drag 当前对象被拖动时一直触发
+						// dragend  拖动操作完成时触发
+			// 2.目标对象
+						// dragenter  
+						// dragover  一直在目标对象
+						// dragleave 从目标上被移除
+						
+						// drop  当被拖动的元素在目标元素上放下时触发
+		
+		</script>
+	</body>
+</html>

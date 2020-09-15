@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5_canvas标签的基本使用</title>
+</head>
+<body>
+    <!-- 默认是300px*300px -->
+    <canvas id="" width="300px" height="300px"></canvas>
+    <!-- 注意力 2D渲染的上下文 -->
+    <script type="text/javascript">
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+        console.log(canvas.__proto__);//html:15
+        console.log(ctx);//html:16
+
+        //填充颜色
+        ctx.fillStyle = 'red';
+        //边框颜色
+        ctx.strokeStyle = '#FDDD9B';
+        //填充矩形
+        ctx.fillRect(25,25,100,100);//25,25:坐标系的值，100,100:100px*100px大小 默认颜色:黑色
+        ctx.clearRect(45,45,60,60);
+        //填充没有背景颜色的矩形
+        ctx.strokeRect(50,50,50,50);
+
+        
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>P13_save和restore方法</title>
+        <style type="text/css">
+            *{
+                padding:0px;
+                margin:0px;
+            }
+        </style>
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="200"></canvas>
+		<script type="text/javascript">
+			function draw() {
+				var ctx = document.getElementById('canvas').getContext('2d');
+				ctx.save();
+				ctx.fillStyle = '#0CB6D4';
+				ctx.fillRect(0,0,150,150);
+				ctx.save();//保存第一次的状态
+				
+				ctx.fillStyle = 'red';
+				ctx.fillRect(15,15,120,120);
+				ctx.save();//保存第二次状态
+				
+				
+				ctx.fillStyle = 'greenyellow';
+				ctx.fillRect(30,30,90,90);
+				
+				ctx.restore();//恢复之前的颜色状态(红色)
+				ctx.fillRect(45,45,60,60);
+
+				ctx.restore();//恢复到#0CB6D4颜色状态
+				ctx.fillRect(60,60,30,30);
+				
+				ctx.restore();//恢复到默认的颜色状态
+				// ctx.fillRect(67.5,67.5,15,15);
+				
+
+			}
+			draw();
+		</script>
+	</body>
+</html>

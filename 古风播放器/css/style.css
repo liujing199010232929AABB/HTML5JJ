@@ -1,0 +1,54 @@
+body {
+    margin:0;
+    background-repeat:no-repeat;
+    background-position:50%;
+    background-image:url(../pic/page-bg.png);
+    background-size:100% auto;
+    background-color:#efebcb;
+}
+.PlayEy {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:653px;
+    height:653px;
+    background:url(../pic/bg_circle.png), url(../pic/bg_center.png) no-repeat center;
+    /* background-size:100%  auto; */
+}
+.Btn {
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:95px;
+    height:95px;
+    background-color:#ff0;
+    background:url(../pic/btn-bg.png) no-repeat;
+    animation:change 3s linear infinite;
+}
+@keyframes change{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+
+	}
+}
+.Play {
+    position:absolute;
+    width:29px;
+    height:36px;
+    background:red;
+    background:url(../pic/pause.png) no-repeat;
+    transition:.5s;
+    /* 切换时的过度 */
+}
+.btns-bg {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:30px auto;
+    width:653px;
+    height:653px;
+}

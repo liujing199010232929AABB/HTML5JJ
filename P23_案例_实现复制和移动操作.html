@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>P23_案例_实现复制和移动操作</title>
+        <style type="text/css">
+            #copy,#move{
+                border: 1px solid #000;
+                width: 300px;
+                height: 200px;
+            }
+            #copyTarget,#moveTarget{
+                width: 300px;
+                height: 200px;
+                border: 1px solid #FF0000;
+            }
+            #newId{
+                width: 200px;
+                height: 50px;
+                border: 1px solid darkcyan;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>使用拖拽实现移动和复制功能</h2>
+        <div draggable="true" id="copy">要复制的元素</div>
+        <div id="copyTarget"></div>
+        <div draggable="true" id="move">要移动的元素</div>
+        <div id="moveTarget"></div>
+        <script type="text/javascript">
+            window.onload = function() {
+                // 复制
+                $('copy').ondragstart = handler_dragstart;
+                $('copy').ondragend = handler_dragend;
+                $('copyTarget').ondragover = handler_dragover;
+                $('copyTarget').ondragleave = handler_dragLeave;
+                $('copyTarget').ondrop = handler_drop;
+                // 移动
+                $('move').ondragstart = handler_dragstart;
+                $('move').ondragend = handler_dragend;
+                $('moveTarget').ondragover = handler_dragover;
+                $('moveTarget').ondragleave = handler_dragLeave;
+                $('moveTarget').ondrop = handler_drop;
+                function handler_dragstart(event) {
+                    console.log(event.dataTransfer);
+                    console.log('拖拽开始');
+                    // 设置数据
+                    event.dataTransfer.setData('text/plain', event.target.id);
+                    // 设置拖动效果 设置既复制又移动
+                    event.effectAllowed = 'copyMove';
+                }
+                function handler_dragend(event) {
+                    // 拖动操作完成时 清空设置的数据
+                    // event.target.style.borderColor = 'black';
+                    event.dataTransfer.clearData();
+                }
+                // 当被拖动元素在目标元素内时触发  一直反复触发
+                function handler_dragover(event) {
+                    event.target.style.background = 'lightblue';
+                    event.preventDefault();
+                    // 注意:dragenter和dragover事件和dragLeave的默认行为是拒绝接受任何被拖放的元素。因此，我们必须阻止浏览器这种默认行为。e.preventDefault();
+                }
+                function handler_drop(event) {
+                    event.preventDefault();
+                    // 获取设置的数据
+                    var id = event.dataTransfer.getData('text/plain');
+                    if (id === 'copy' && event.target.id === 'copyTarget') {
+                        var nodeCopy = document.getElementById(id).cloneNode(true);
+                        nodeCopy.id = 'newId';
+                        event.target.appendChild(nodeCopy);
+                    }
+                    if(id === 'move' && event.target.id === 'moveTarget'){
+                        event.target.appendChild(document.getElementById(id));
+                        console.log(event.target.children);
+                    }
+                }
+                function handler_dragLeave(event) {
+                    event.target.style.background = 'white';
+                    event.preventDefault();
+                }
+                function $(ele) {
+                    return document.getElementById(ele);
+                }
+            }
+        </script>
+    </body>
+</html>

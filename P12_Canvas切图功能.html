@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P12_Canvas切图功能</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="348" height="267"></canvas>
+		<img src="ima" alt="">
+		<script type="text/javascript">
+			var ctx = document.getElementById('canvas').getContext('2d');
+			// drawImag(imgObj,x,y,width,height,dx,dy,dwidth,dheight)
+
+			function draw() {
+				var imgObj = new Image();
+				imgObj.onload = function(){
+					ctx.drawImage(imgObj,20,20,50,50,0,0,50,50);
+				}
+				imgObj.src = 'static/pic/splice.jpg';
+			}
+			draw()
+		</script>
+	</body>
+</html>

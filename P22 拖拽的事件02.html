@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>22 拖拽的事件02</title>
+	</head>
+	<style>
+		#current {
+			border: 1px solid #000;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+
+		#target {
+			border: 1px solid #f00;
+			width: 400px;
+			height: 400px;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #FF6700;
+		}
+	</style>
+	<body>
+		<p>不能被拖拽的文字</p>
+		<div id="current">
+			<div class="text" id="text">
+				<p draggable="true">可拖拽的文字</p>
+				<img src="static/pic/play.png" alt="">
+				<div class="box" draggable="true"></div>
+			</div>
+		</div>
+		<div id="target"></div>
+		<script>
+			var text = document.getElementById('text');
+			var target = document.getElementById('target');
+			text.ondragstart = function(event) {
+				console.log('元素开始被拖动1');
+			}
+			text.ondrag = function(e) {
+				// console.log('一直被拖拽着2');
+			}
+			text.ondragend = function(e) {
+				console.log('拖拽操作完成时触发3');
+			}
+			target.ondragenter = function(e) {
+				console.log('进入了所要的目标对象中4');
+				e.preventDefault()//阻止默认事件
+			}
+			target.ondragover = function(e) {
+				console.log('在目标元素内触发5');
+				e.preventDefault();
+			}
+			target.ondragleave = function(e) {
+				console.log('3拖拽着元素没有放下，并离开目标对象时6');
+				// e.preventDefault();
+			}
+			target.ondrop = function(event) {
+				console.log('4被拖拽元素在目标元素里放下是触发7');
+				event.preventDefault();
+			}
+		</script>
+	</body>
+</html>

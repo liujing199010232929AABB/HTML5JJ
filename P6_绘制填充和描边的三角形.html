@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6_绘制填充和描边的三角形</title>
+</head>
+<body>
+    <!-- 默认是300px*300px -->
+    <canvas id="" width="300px" height="300px" style="border:1px solid red;"></canvas>
+    <!-- 注意力 2D渲染的上下文 -->
+    <script type="text/javascript">
+        // 1.创建路径起始点
+        // 2.使用画布的各种方法画出路径
+        // 3.把路径封闭
+        // 4.一旦路径生成，你就能通过描边或填充来渲染图像
+            // beginPath() 无参数
+			 
+			// closePath() 关闭路径
+			 
+			// moveTo(x,y) 将画笔移动到指定的坐标上
+			 
+			// 绘制一条线
+			// lineTo(x,y)
+			 
+			// 描边或填充的方法
+			 
+			// stroke() 通过线条
+			// fill()  通过填充
+			 
+			 
+			
+			// 1.画填充的三角形
+			var ctx = document.querySelector('canvas').getContext('2d');
+			// (1) 开始路径
+			ctx.beginPath();
+			// (2) 落点
+			ctx.moveTo(25,25);
+			// (3) 画路径
+			ctx.lineTo(105,25);
+			ctx.lineTo(25,105);
+			// (4)关闭
+			ctx.closePath();
+			// (5) 填充
+			ctx.fill();
+			
+				// (1) 开始路径
+			ctx.beginPath();
+			// (2) 落点
+			ctx.moveTo(125,125);
+			// (3) 画路径
+			ctx.lineTo(125,45);
+			ctx.lineTo(45,125);
+			ctx.closePath();
+			// (4) 描边
+			ctx.stroke();
+
+
+    </script>
+</body>
+</html>

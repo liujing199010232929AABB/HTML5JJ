@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2_音视频的常用属性</title>
+</head>
+<body>
+    <audio src="static/music/一剪梅.mp3" controls="controls" autoplay>
+
+    </audio>
+    <script type="text/javascript">
+        //  常用属性
+        // 1.autoplay 自动播放 布尔值 默认是false
+        // 2.loop  是否自动循环播放歌曲 布尔值 默认是false
+        // 3.muted 是否静音
+        // 4.volume 音量
+        // 5.paused 是否停止播放
+        // 6.duration 返回当前音频的总时间
+        // 7.currentTime 当前的播放时间
+        
+
+        // 常用事件
+        // 1.loadstart ： 当浏览器开始查找音视频触发
+        // 2.progress: 当浏览器正在下载音频/视频时触发。
+        // 3.durationchange : 当音视频的时长已更改时触发
+        // 4.loadedmetadata: 当浏览器已加载音视频的元数据触发
+        // 5.loadeddata: 当浏览器已加载音频/视频的当前帧时触发。
+        // 6.canplay: 当浏览器可以开始播放音频/视频时触发。
+        // 7.canplaythrough: 当浏览器可在不因缓冲而停顿的情况下进行播放时触发。
+
+
+        var audio = document.querySelector('audio');
+        // audio.autoplay = true;
+        // audio.loop = true;
+        // audio.muted = true;
+        // audio.volume = 0.5;//控制音量
+
+        audio.onloadstart = function() {
+            console.log('1开始查找音视频');
+        }
+        audio.onprogress = function() {
+            console.log('2当浏览器正在下载音频/视频时触发');
+        }
+        audio.ondurationchange = function() {
+            console.log('3当音视频的时长已更改时触发');
+        }
+        audio.onloadedmetadata = function() {
+            console.log('4当浏览器已加载音视频的元数据触发');
+        }
+        audio.onloadeddata = function() {
+            console.log('5当浏览器已加载音频/视频的当前帧时触发');
+        }
+        audio.oncanplay = function() {
+            console.log('6当浏览器可以开始播放音频/视频时触发');
+        }
+        audio.oncanplaythrough = function() {
+            console.log('7当浏览器可在不因缓冲而停顿的情况下进行播放时触发');
+        }
+        
+        // 当目前的播放位置发生改变时
+        audio.ontimeupdate = function(){
+            console.log('音频一直在播放');
+        }
+        audio.onended = function(){
+            console.log('音频已播放结束');
+        }
+        // audio.play();
+        // audio.pause();
+        audio.onvolumechange = function(){
+            console.log('音量变化了');
+        }
+        
+
+
+            
+    </script>
+</body>
+</html>

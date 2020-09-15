@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>01_简单视频的DOM操作</title>
+    </head>
+    <body>
+        <div class="box">
+            <button id="playOrStop">播放/暂停</button>
+        </div>
+        <video width="800" height="">
+            <source src="static/music/短视频.mp4" type="video/mp4" loop></source>
+            <!-- <source src="static/music一剪梅.mp3" type="video/mp3"></source> -->
+            <!-- <source src="static/music/一剪梅.mp3" type="video/webm"></source> -->
+            当前浏览器不支持 video直接播放
+        </video>
+        <br>
+        <audio src="static/music/一剪梅.mp3" controls="controls" autoplay loop>
+
+        </audio>
+        <script type="text/javascript">
+            var playOrStop  = document.getElementById('playOrStop');
+            var video  = document.querySelector('video');
+            var audio  = document.querySelector('audio');
+            console.dir(video);//html:25
+            console.dir(audio);//html:26
+            console.dir(playOrStop);//html:27
+            playOrStop.onclick = function(){
+                console.log(video.paused);
+                if(video.paused){
+                    video.play();
+                }else{
+                    video.pause();
+                }
+                if(audio.paused){
+                    audio.play();
+                }else{
+                    audio.pause();
+                }
+
+            }
+        </script>
+    </body>
+</html>

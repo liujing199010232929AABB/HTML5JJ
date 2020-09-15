@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P11_Canvas使用图片绘制折线图</title>
+	</head>
+	<body>
+		<canvas id="" width="1000" height="1000" style="border: 1px solid #f00"></canvas>
+		<!-- 1. 指定一个img对象或者是一个canvas元素的引用资源
+				 2. dragImage(img0bj,x,y)//一共有9个参数
+		 -->
+		<script type="text/javascript">
+			var ctx = document.querySelector('canvas').getContext('2d');
+			// 1.创建img对象
+			var imgObj = new Image();
+			// 3.监听图像加载
+			imgObj.onload = function(){
+				// 3.1将图像设置到canvas中
+				ctx.drawImage(imgObj,0,0);
+				
+				// 3.2 绘制折线
+				ctx.beginPath();
+				ctx.moveTo(123,400);
+				ctx.lineTo(198,350);
+				ctx.lineTo(300,200);
+				ctx.lineTo(500,150);
+				ctx.stroke();
+			}
+			// 2.设置img的src属性
+			imgObj.src = 'static/pic/broken.png'
+		</script>
+	</body>
+</html>

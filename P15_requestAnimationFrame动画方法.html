@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P15_requestAnimationFrame动画方法</title>
+	</head>
+	<body>
+		<canvas id="" width="500" height="500" style="border: 1px solid red"></canvas>
+		<script type="text/javascript">
+			var ctx = document.querySelector('canvas').getContext('2d');
+			// ctx.translate(50,10);
+			var num = 0;
+			
+
+			function draw() {
+				// 1.清空canvas
+				ctx.clearRect(0, 0, 500, 500);
+				num++;
+				// 2.保存状态
+				ctx.save()
+
+				// 3.绘制动画图形
+				ctx.rotate(num * 0.1 * Math.PI / 180); //顺时针
+				ctx.fillRect(200, 200, 100, 100);
+				// 4.恢复canvas状态
+				ctx.restore();
+				//此方法一般每秒钟回调函数执行60次。告诉浏览器你希望执行一个动画，并在重绘之前，请求浏览器执行一个特定的函数来更新动画。
+				window.requestAnimationFrame(draw);
+			}
+			window.requestAnimationFrame(draw);
+			
+		</script>
+	</body>
+</html>

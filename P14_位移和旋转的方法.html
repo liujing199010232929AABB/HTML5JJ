@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P14_位移和旋转的方法</title>
+	</head>
+	<body>
+		<canvas id="" width="500" height="500" style="border: 1px solid red"></canvas>
+		<script type="text/javascript">
+			var ctx = document.querySelector('canvas').getContext('2d');
+			// ctx.translate(50,10);
+			var num = 0;
+			setInterval(function() {
+				// 1.清空canvas
+				ctx.clearRect(0,0,500,500);
+				num++;
+				// 2.保存状态
+				ctx.save()
+				
+				// 3.绘制动画图形
+				ctx.rotate(num * Math.PI / 180); //顺时针
+				ctx.fillRect(200, 200, 100, 100);
+				// 4.恢复canvas状态
+				ctx.restore();
+
+			}, 1000);
+			
+			// window.requestAnimationFrame(function(){//请求动画帧，每秒钟执行60次
+				
+			// })
+		</script>
+	</body>
+</html>
